@@ -1,0 +1,47 @@
+# This file contains metadata for your plugin.
+
+# This file should be included when you package your plugin.# Mandatory items:
+
+[general]
+name=Coordinate Capture
+qgisMinimumVersion=3.14
+description=Capture mouse coordinates in different CRS
+version=0.1
+author=Stefanos Natsis
+email=uclaros@gmail.com
+
+about=This is a Python port of the deprecated Coordinate Capture core plugin
+
+tracker=https://github.com/uclaros/qgis_coordinate_capture/issues
+repository=https://github.com/uclaros/qgis_coordinate_capture
+# End of mandatory metadata
+
+# Recommended items:
+
+hasProcessingProvider=no
+# Uncomment the following line and add your changelog:
+# changelog=
+
+# Tags are comma separated with spaces allowed
+tags=python
+
+homepage=https://github.com/uclaros/qgis_coordinate_capture
+category=Vector
+icon=icons/coordinate_capture.png
+# experimental flag
+experimental=False
+
+# deprecated flag (applies to the whole plugin, not just a single version)
+deprecated=False
+
+# Since QGIS 3.8, a comma separated list of plugins to be installed
+# (or upgraded) can be specified.
+# Check the documentation for more information.
+# plugin_dependencies=
+
+Category of the plugin: Raster, Vector, Database or Web
+# category=
+
+# If the plugin can run on QGIS Server.
+server=False
+
