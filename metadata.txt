@@ -6,7 +6,7 @@
 name=Coordinate Capture
 qgisMinimumVersion=3.14
 description=Capture mouse coordinates in different CRS
-version=0.1
+version=0.2
 author=Stefanos Natsis
 email=uclaros@gmail.com
 
