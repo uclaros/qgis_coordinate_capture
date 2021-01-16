@@ -54,14 +54,14 @@ class CoordinateCaptureDockWidget(QDockWidget):
 
         self.userCrsEdit = QLineEdit(self.dockWidgetContents)
         self.userCrsEdit.setReadOnly(True)
-        self.userCrsEdit.setToolTip(self.tr("Coordinate in your selected CRS (lat,lon or east,north)"))
+        self.userCrsEdit.setToolTip(self.tr("Coordinate in your selected CRS (longitude,latitude or east,north)"))
         self.copyUserCrsCoordinatesAction = self.userCrsEdit.addAction(QIcon(":/plugins/coordinate_capture/mActionEditCopy.svg"),
                                                                        QLineEdit.TrailingPosition)
         self.copyUserCrsCoordinatesAction.triggered.connect(self.copyUserCrsCoordinates)
 
         self.canvasCrsEdit = QLineEdit(self.dockWidgetContents)
         self.canvasCrsEdit.setReadOnly(True)
-        self.canvasCrsEdit.setToolTip(self.tr("Coordinate in map canvas coordinate reference system (lat,lon or east,north)"))
+        self.canvasCrsEdit.setToolTip(self.tr("Coordinate in map canvas coordinate reference system (longitude,latitude or east,north)"))
         self.copyCanvasCrsCoordinatesAction = self.canvasCrsEdit.addAction(QIcon(":/plugins/coordinate_capture/mActionEditCopy.svg"),
                                                                            QLineEdit.TrailingPosition)
         self.copyCanvasCrsCoordinatesAction.triggered.connect(self.copyCanvasCrsCoordinates)
