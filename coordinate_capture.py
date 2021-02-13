@@ -271,10 +271,10 @@ class CoordinateCapture:
 
     def update(self, point: QgsPointXY):
         userCrsPoint = self.transform.transform(point)
-        self.dockwidget.userCrsEdit.setText('{0:.{2}f},{1:.{2}f}'.format(userCrsPoint.x(),
+        self.dockwidget.userCrsEdit.setText('{0:.{2}f}, {1:.{2}f}'.format(userCrsPoint.x(),
                                                                          userCrsPoint.y(),
                                                                          self.userCrsDisplayPrecision))
-        self.dockwidget.canvasCrsEdit.setText('{0:.{2}f},{1:.{2}f}'.format(point.x(),
+        self.dockwidget.canvasCrsEdit.setText('{0:.{2}f}, {1:.{2}f}'.format(point.x(),
                                                                         point.y(),
                                                                         self.canvasCrsDisplayPrecision))
 
