@@ -90,12 +90,20 @@ class CoordinateCaptureDockWidget(QDockWidget):
         self.dockWidgetContents.layout().addWidget(self.captureButton, 2, 1)
 
     def copyUserCrsCoordinates(self):
+        textOri = self.userCrsEdit.displayText()
+        self.userCrsEdit.setText(textOri.replace(" ",""))
         self.userCrsEdit.selectAll()
         self.userCrsEdit.copy()
+        self.userCrsEdit.setText(textOri)
+        self.userCrsEdit.selectAll()
 
     def copyCanvasCrsCoordinates(self):
+        textOri = self.canvasCrsEdit.displayText()
+        self.canvasCrsEdit.setText(textOri.replace(" ",""))
         self.canvasCrsEdit.selectAll()
         self.canvasCrsEdit.copy()
+        self.canvasCrsEdit.setText(textOri)
+        self.canvasCrsEdit.selectAll()
 
     def closeEvent(self, event):
         self.closingPlugin.emit()
