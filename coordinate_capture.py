@@ -21,13 +21,18 @@
  *                                                                         *
  ***************************************************************************/
 """
-from qgis.PyQt.QtCore import QSettings, QTranslator, QCoreApplication, Qt
+# Attempt to import QSettings
+try:
+    from qgis.PyQt.QtCore import QSettings
+except ImportError:
+    from PyQt6.QtCore import QSettings
+from qgis.PyQt.QtCore import QCoreApplication, QTranslator, Qt
 from qgis.PyQt.QtGui import QIcon
 from qgis.PyQt.QtWidgets import QAction
 from qgis.gui import QgsProjectionSelectionDialog
 from qgis.core import QgsUnitTypes, QgsCoordinateTransform, QgsCoordinateReferenceSystem, QgsPointXY
 # Initialize Qt resources from file resources.py
-from .resources import *
+# from .resources import *
 
 # Import the code for the DockWidget
 from .coordinate_capture_dockwidget import CoordinateCaptureDockWidget
@@ -164,11 +169,11 @@ class CoordinateCapture:
             action.setWhatsThis(whats_this)
 
         if add_to_toolbar:
-            self.iface.addVectorToolBarIcon(action)
+            self.iface.addToolBarIcon(action)
 
         if add_to_menu:
-            self.iface.addPluginToVectorMenu(
-                "",
+            self.iface.addPluginToMenu(
+                self.menu,
                 action)
 
         self.actions.append(action)
@@ -178,7 +183,7 @@ class CoordinateCapture:
     def initGui(self):
         """Create the menu entries and toolbar icons inside the QGIS GUI."""
 
-        icon_path = ':/plugins/coordinate_capture/coordinate_capture.png'
+        icon_path = os.path.join(self.plugin_dir, "icons", "coordinate_capture.png")
         self.add_action(
             icon_path,
             text=self.tr(u'Coordinate Capture'),
@@ -211,10 +216,10 @@ class CoordinateCapture:
         # print "** UNLOAD CoordinateCapture"
         self.mapTool.deactivate()
         for action in self.actions:
-            self.iface.removePluginVectorMenu(
-                "",
+            self.iface.removePluginMenu(
+                self.menu,
                 action)
-            self.iface.removeVectorToolBarIcon(action)
+            self.iface.removeToolBarIcon(action)
 
     # --------------------------------------------------------------------------
 
@@ -240,7 +245,7 @@ class CoordinateCapture:
 
             # show the dockwidget
             # TODO: fix to allow choice of dock location
-            self.iface.addDockWidget(Qt.LeftDockWidgetArea, self.dockwidget)
+            self.iface.addDockWidget(Qt.DockWidgetArea.LeftDockWidgetArea, self.dockwidget)
             self.dockwidget.show()
 
     def setCrs(self):

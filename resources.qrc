@@ -1,6 +1,7 @@
 <RCC>
     <qresource prefix="/plugins/coordinate_capture" >
         <file alias="coordinate_capture.png">icons/coordinate_capture.png</file>
+        <file alias="icon.png">icons/coordinate_capture.png</file>
         <file alias="tracking.svg">icons/tracking.svg</file>
         <file alias="transformed.svg">icons/transformed.svg</file>
         <file alias="mIconProjectionEnabled.svg">icons/mIconProjectionEnabled.svg</file>
